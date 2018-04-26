@@ -4,6 +4,8 @@
 
 **[try it here :seedling:](https://ryanatkn.github.io/this-breath)**
 
+[short video introduction](https://youtu.be/6NZwuEwg_BQ)
+
 ## tech
 
 Made with canvas and TypeScript and formatted with
