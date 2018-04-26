@@ -1,0 +1,144 @@
+html {
+  touch-action: manipulation;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+section,
+header {
+  margin-bottom: 30px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+input {
+  margin: 0 10px;
+}
+
+#settings {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: stretch;
+  padding: 30px 30px 100px;
+}
+body.show-settings #settings {
+  display: flex;
+}
+#settings-content {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.3), 0px 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+#settings-toggle {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  height: 100px;
+  width: 100%;
+}
+
+#settings-toggle-icon {
+  opacity: 0;
+  transform: scale3d(0.6, 0.6, 0.6);
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+}
+
+#settings-toggle:hover #settings-toggle-icon,
+#settings.open #settings-toggle-icon,
+#settings-toggle.force-visible #settings-toggle-icon {
+  opacity: 0.6;
+  transform: scale3d(1, 1, 1);
+}
+
+#settings-toggle.initial-state #settings-toggle-icon {
+  transform: scale3d(1.8, 1.8, 1.8);
+  opacity: 0;
+}
+
+#settings-toggle:active #settings-toggle-icon {
+  transform: scale3d(0.95, 0.95, 0.95);
+  transition: transform 0.1s ease-out;
+  opacity: 1;
+}
+
+#memory-speed-value {
+  display: inline-block;
+  width: 50px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.error-message {
+  color: rgba(225, 70, 70, 1);
+}
+
+.slider-value-label {
+  display: inline-block;
+  text-align: right;
+  width: 50px;
+}
+
+#color-preview-list {
+  display: flex;
+}
+.color-preview-item {
+  flex: 1;
+  height: 32px;
+}
+
+#color-settings.rainbow #custom-colors-content {
+  display: none;
+}
+#color-settings.custom #rainbow-colors-content {
+  display: none;
+}
+
+#memory-count {
+  font-weight: bold;
+}

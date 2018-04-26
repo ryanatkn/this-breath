@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>this breath</title>
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <canvas id="space"></canvas>
+    <div id="settings">
+        <div id="settings-content">
+            <header>
+                <h1>This Breath</h1>
+                <p>
+                    <em>a minimal tool for breathing exercises and breath visualization</em>
+                </p>
+            </header>
+            <section>
+                <p>
+                    <strong>How to use:</strong> synchronize your breath with the visualization. As the white circle fills the colored
+                    circle, breathe in, and as it shrinks, breathe out.
+                </p>
+                <p>
+                    Here's a
+                    <a href="https://youtu.be/6NZwuEwg_BQ">
+                        video introduction.
+                    </a>
+                </p>
+                <p>
+                    See the settings below to customize the breathing pattern. You can bookmark the website link to save the settings, or share
+                    it with others and they'll get the same setup.
+                </p>
+                <p>
+                    Optionally, the tool can be used for meditation. One form of meditation could look like this: sync your breath with the visualization,
+                    keeping your awareness centered on your breath and not your sight. Whenever you notice your mind wander
+                    from your breath, gently bring your awareness back, and click or tap anywhere or press any key on your
+                    keyboard to acknowledge your wandering attention. This creates a colored memory that will dissipate in
+                    a moment. (You've created
+                    <span id="memory-count">0</span> in this session.) It's helpful to understand that
+                    <em>noticing</em> your loss of attention is part of what's being trained - so when you realize your focus
+                    has drifted, consider it a small victory. This is just one of infinite possibilities - search the web
+                    if you want to learn more about meditation.
+                </p>
+                <p>
+                    <strong>Please note!</strong> I strongly recommend
+                    <em>
+                        <strong>against</strong>
+                    </em> using this tool as a primary meditation companion. It may be useful to gain some visualization muscle
+                    memory for meditators, (that's what I hope to get from it) but I think it'll detract from the experience
+                    if regularly used in one's practice, in part because it may encourage you to fixate on your sense of
+                    sight. Beyond meditation, the tool may also be useful to explore various breathing patterns.
+                </p>
+                <p>
+                    Also,
+                    <strong>stop using this tool if it makes you feel uncomfortable.</strong> I doubt it's harmful to stare at the
+                    pretty colors, but it seems possible. You can also adjust the colors below.
+                </p>
+            </section>
+            <h2>Settings</h2>
+            <section>
+                <form id="settings-form">
+                    <div class="form-group">
+                        <label for="vessel-size-value">
+                            <strong>vessel size</strong>
+                            <input id="vessel-size-slider" type="range" min="0.005" max="0.5" step="0.005" />
+                            <span id="vessel-size-value"></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <label>
+                                <strong>breath timings</strong>
+                                <input id="breathing-states" type="text" />
+                            </label>
+                        </div>
+                        <p class="error-message" id="breathing-states-error"></p>
+                        <p>
+                            The breath timings represent the number of seconds to spend in each part of the breath cycle, from (1) inhaling to (2) pausing
+                            when full to (3) exhaling to (4) pausing when empty.
+                        </p>
+                        <p>
+                            The timings must be
+                            <strong>semicolon-separated numbers in groups of 4</strong>, for the 4 parts of the breathing cycle (in,
+                            pause, out, pause). For example, if you want to breathe in for 5 seconds, pause for 1 on full,
+                            exhale for 3 seconds, and pause for 1 on empty, and then repeat, you would enter a value of
+                            <em>"5; 1; 3; 1"</em>. If you want to alternate between short and long breaths, so 4 seconds in,
+                            pause for 1, 4 seconds out, pause for 1, then a long breath of 9 seconds in, no pause at the
+                            top, 9 seconds out, no pause at the bottom, and then repeat, enter a value of
+                            <em>"4; 1; 4; 1; 9; 0; 9; 0"</em>.
+                        </p>
+                        <p>
+                            Is this UI unwieldy? Yeah, sorry, please excuse the obtuseness. :} It's flexible though, and was quick to implement within
+                            the technical constraints I set for the project.
+                        </p>
+                    </div>
+                    <div id="color-settings" class="form-group">
+                        <div>
+                            <strong>colors</strong>
+                            <label for="rainbow-colors-toggle">
+                                <input id="rainbow-colors-toggle" type="radio" name="colors" value="rainbow" checked="checked" /> rainbow
+                            </label>
+                            <label for="custom-colors-toggle">
+                                <input id="custom-colors-toggle" type="radio" name="colors" value="custom" /> custom
+                            </label>
+                        </div>
+                        <div id="rainbow-colors-content">
+                            <label>
+                                <span class="slider-value-label" id="rainbow-colors-count-value"></span>
+                                <input id="rainbow-colors-count-slider" type="range" min="1" max="24" step="1" />number of colors
+                            </label>
+                            <label>
+                                <span class="slider-value-label" id="rainbow-colors-saturation-value"></span>
+                                <input id="rainbow-colors-saturation-slider" type="range" min="0" max="1" step="0.01" />saturation
+                            </label>
+                            <label>
+                                <span class="slider-value-label" id="rainbow-colors-lightness-value"></span>
+                                <input id="rainbow-colors-lightness-slider" type="range" min="0" max="1" step="0.01" />lightness
+                            </label>
+                        </div>
+                        <div id="custom-colors-content">
+                            <input id="custom-colors" type="text" />
+                            <p class="error-message" id="custom-colors-error"></p>
+                            <p>
+                                Accepts a
+                                <strong>semicolon-separated</strong> list of
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color values that work with canvas</a>. For example, you could just put
+                                <em>"black; red"</em>, or use rgb/hsl/hex notation, like
+                                <em>"#000; hsl(0, 100%, 50%)"</em>.
+                            </p>
+                        </div>
+                        <div id="color-preview-list"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="memory-speed-value">
+                            <strong>memory dissipation speed</strong>
+                            <input id="memory-speed-slider" type="range" min="0.1" max="10" step="0.1" />
+                            <input id="memory-speed-value" type="text" />
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            <button type="button" id="reset-settings-button">Reset all settings</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <h2>About</h2>
+            <section>
+                <p>
+                    Thanks for checking out This Breath. I hope it helps you in some way.
+                </p>
+                <p>
+                    The
+                    <a href="https://github.com/ryanatkn/this-breath">source code is available on GitHub</a>. It's made with TypeScript, canvas, and no dependencies.
+                </p>
+                <p>
+                    Got ideas for improvements or other comments? I'd love to hear from you. You can
+                    <a href="https://github.com/ryanatkn/this-breath/issues">open a public issue</a>
+                    or email me at ryanatkn at gmail.
+                </p>
+                <p>
+                    Happy breathing. :)
+                </p>
+            </section>
+        </div>
+    </div>
+    <div id="settings-toggle" class="initial-state force-visible">
+        <div id="settings-toggle-icon">
+            ⚙
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

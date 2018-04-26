@@ -1,0 +1,36 @@
+{
+  "name": "this-breath",
+  "version": "1.0.0",
+  "description": "a minimal tool for breathing exercises and breath visualization",
+  "main": "app.js",
+  "devDependencies": {
+    "prettier": "^1.11.1",
+    "typescript": "^2.7.2"
+  },
+  "scripts": {
+    "start": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanatkn/this-breath.git"
+  },
+  "keywords": [
+    "breathing",
+    "meditation"
+  ],
+  "author": {
+    "name": "Ryan Atkinson",
+    "email": "ryanatkn@gmail.com",
+    "url": "https://twitter.com/ryanatkn"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryanatkn/this-breath/issues"
+  },
+  "homepage": "https://github.com/ryanatkn/this-breath#readme",
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "bracketSpacing": false
+  }
+}

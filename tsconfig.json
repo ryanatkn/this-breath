@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outFile": "app.js",
+    "target": "es5",
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
