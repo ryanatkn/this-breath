@@ -1,7 +1,14 @@
 {
   "name": "this-breath",
-  "version": "1.0.0",
   "description": "a minimal tool for breathing exercises and breath visualization",
+  "homepage": "https://ryanatkn.github.io/this-breath",
+  "license": "Unlicense",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ryan Atkinson",
+    "email": "mail@ryanatkn.com",
+    "url": "https://www.ryanatkn.com"
+  },
   "main": "app.js",
   "devDependencies": {
     "prettier": "^1.11.1",
@@ -18,16 +25,9 @@
     "breathing",
     "meditation"
   ],
-  "author": {
-    "name": "Ryan Atkinson",
-    "email": "ryanatkn@gmail.com",
-    "url": "https://twitter.com/ryanatkn"
-  },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ryanatkn/this-breath/issues"
   },
-  "homepage": "https://github.com/ryanatkn/this-breath#readme",
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all",

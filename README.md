@@ -2,9 +2,7 @@
 
 > a minimal tool for breathing exercises and breath visualization
 
-**[try it here :seedling:](https://ryanatkn.github.io/this-breath)**
-
-[short video introduction](https://youtu.be/6NZwuEwg_BQ)
+**<https://ryanatkn.github.io/this-breath>**
 
 ## tech
 
@@ -28,4 +26,4 @@ firefox index.html # open `index.html` in your browser
 
 ## license
 
-MIT
+public domain ([The Unlicense](license))
